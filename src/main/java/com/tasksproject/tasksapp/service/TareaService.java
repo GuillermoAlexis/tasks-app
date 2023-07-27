@@ -15,5 +15,5 @@ public interface TareaService {
 	void deleteTarea(Long id);
 
 	// Editar una tarea
-	TareaDTO updateTarea(Long id, TareaDTO taskDTO);
+	TareaDTO updateTarea(TareaDTO taskDTO);
 }

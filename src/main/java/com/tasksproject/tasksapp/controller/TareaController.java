@@ -58,5 +58,34 @@ public class TareaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdTarea);
 	}
 
-	
+	@Operation(summary = "Actualiza una Tarea existente")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Tarea actualizada exitosamente", content = {
+					@Content(mediaType = "application/json", schema = @Schema(implementation = TareaDTO.class)) }),
+			@ApiResponse(responseCode = "400", description = "Solicitud inválida"),
+			@ApiResponse(responseCode = "404", description = "No se encontró la Tarea"),
+			@ApiResponse(responseCode = "500", description = "Error interno del servidor") })
+	@PutMapping("/{id}")
+	public ResponseEntity<TareaDTO> updateTarea(@RequestBody TareaDTO tareaDTO) {
+		try {
+			TareaDTO updatedTarea = tareaService.updateTarea(tareaDTO);
+			return ResponseEntity.ok(updatedTarea);
+		} catch (TareaNotFoundException e) {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+	@Operation(summary = "Elimina una Tarea por su ID")
+	@ApiResponses(value = { @ApiResponse(responseCode = "204", description = "Tarea eliminada exitosamente"),
+			@ApiResponse(responseCode = "404", description = "No se encontró la Tarea"),
+			@ApiResponse(responseCode = "500", description = "Error interno del servidor") })
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deleteTarea(@PathVariable Long id) {
+		try {
+			tareaService.deleteTarea(id);
+			return ResponseEntity.noContent().build();
+		} catch (TareaNotFoundException e) {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }
