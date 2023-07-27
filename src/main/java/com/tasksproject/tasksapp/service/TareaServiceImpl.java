@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tasksproject.tasksapp.dto.TareaDTO;
+import com.tasksproject.tasksapp.dto.TareaSaveDTO;
 import com.tasksproject.tasksapp.exception.TareaNotFoundException;
 import com.tasksproject.tasksapp.mapper.TareaMapper;
 import com.tasksproject.tasksapp.model.Tarea;
@@ -29,9 +30,9 @@ public class TareaServiceImpl implements TareaService {
 		return tareaMapper.toTareaDTOList(tareas);
 	}
 
-	public TareaDTO createTarea(TareaDTO tareaDTO) {
+	public TareaDTO createTarea(TareaSaveDTO tareaDTO) {
 		// Mapea el TareaDTO a una entidad Tarea
-		Tarea tarea = tareaMapper.tareaDTOToTarea(tareaDTO);
+		Tarea tarea = tareaMapper.tareaSaveDTOToTarea(tareaDTO);
 
 		// Guarda la nueva tarea en la base de datos y recupera el objeto actualizado
 		tarea = tareaRepository.save(tarea);

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tasksproject.tasksapp.dto.TareaDTO;
+import com.tasksproject.tasksapp.dto.TareaSaveDTO;
 import com.tasksproject.tasksapp.exception.TareaNotFoundException;
 import com.tasksproject.tasksapp.service.TareaService;
 
@@ -53,7 +54,7 @@ public class TareaController {
 			@ApiResponse(responseCode = "400", description = "Solicitud inválida"),
 			@ApiResponse(responseCode = "500", description = "Error interno del servidor") })
 	@PostMapping
-	public ResponseEntity<TareaDTO> createTarea(@Valid @RequestBody TareaDTO tareaDTO) {
+	public ResponseEntity<TareaDTO> createTarea(@Valid @RequestBody TareaSaveDTO tareaDTO) {
 		TareaDTO createdTarea = tareaService.createTarea(tareaDTO);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdTarea);
 	}

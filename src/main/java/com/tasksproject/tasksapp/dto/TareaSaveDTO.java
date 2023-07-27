@@ -17,21 +17,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class TareaDTO {
-	@NotEmpty(message = "El ID es obligatorio")
-	@NotBlank(message = "El ID es obligatorio")
-	@NotNull(message = "El ID es obligatorio")
-	private Long id;
+public class TareaSaveDTO {
 
 	@NotEmpty(message = "La descripción es obligatoria")
 	@NotBlank(message = "La descripción es obligatoria")
 	@NotNull(message = "La descripción es obligatoria")
 	private String descripcion;
 
-
 	@NotNull(message = "La fecha de creación es obligatoria")
 	private LocalDateTime fechaCreacion;
-
 
 	@NotNull(message = "El campo vigente es obligatorio")
 	private boolean vigente;

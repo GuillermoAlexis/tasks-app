@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import com.tasksproject.tasksapp.dto.TareaDTO;
+import com.tasksproject.tasksapp.dto.TareaSaveDTO;
 import com.tasksproject.tasksapp.model.Tarea;
 
 @Component
@@ -51,6 +52,18 @@ public class TareaMapperImpl implements TareaMapper {
 		}
 
 		return tareaDTOs.stream().map(this::tareaDTOToTarea).collect(Collectors.toList());
+	}
+
+	public Tarea tareaSaveDTOToTarea(TareaSaveDTO tareaDTO) {
+		if (tareaDTO == null) {
+			return null;
+		}
+
+		Tarea tarea = new Tarea();
+		tarea.setDescripcion(tareaDTO.getDescripcion());
+		tarea.setFechaCreacion(tareaDTO.getFechaCreacion());
+		tarea.setVigente(tareaDTO.isVigente());
+		return tarea;
 	}
 
 }
