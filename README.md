@@ -46,3 +46,19 @@ Si deseas ejecutar la aplicación en Docker con una base de datos PostgreSQL, si
 5. El archivo dump.sql ubicado en ./Docker/Postgres se utilizará para inicializar la base de datos con datos de ejemplo.
 6. La aplicación ahora estará disponible en ttp://localhost:puerto/tasks-ms/swagger-ui/index, donde puerto es el puerto configurado para la aplicación en el archivo docker-compose.yaml.
 
+
+Si deseas probar los tests de este proyecto y obtener una visión completa de la cobertura de código, te recomendamos utilizar Eclemma (también conocido como EclEmma) para Eclipse. Eclemma es una excelente herramienta de análisis de cobertura que te permitirá verificar qué partes de tu código están siendo ejecutadas por las pruebas y cuáles no.
+
+    Para utilizar Eclemma, sigue estos sencillos pasos:
+
+1. Abre Eclipse y asegúrate de tener el complemento Eclemma instalado. Si aún no lo tienes, puedes instalarlo fácilmente desde el Mercado de Eclipse.
+
+2. Ejecuta las pruebas unitarias de tu proyecto haciendo clic derecho en el proyecto, luego selecciona "Coverage As" y "JUnit Test".
+
+3. Después de ejecutar las pruebas, Eclemma generará un informe de cobertura de código en el que podrás ver qué líneas de código han sido cubiertas por las pruebas y cuáles no.
+
+4. Para obtener una visión general de la cobertura de todo el proyecto, crea una nueva configuración de cobertura en Eclemma, selecciona todas las clases que deseas incluir y ejecuta la cobertura.
+
+5. Eclemma te proporcionará estadísticas detalladas sobre la cobertura de código, incluyendo la cantidad de líneas cubiertas y no cubiertas, así como el porcentaje de cobertura total.
+
+6. Utilizando Eclemma, podrás identificar rápidamente áreas de tu código que no están siendo probadas adecuadamente, lo que te ayudará a mejorar la calidad de tu proyecto y asegurar un funcionamiento más robusto.

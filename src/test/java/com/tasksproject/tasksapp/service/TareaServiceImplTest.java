@@ -1,4 +1,4 @@
-package com.tasksproject.tasksapp;
+package com.tasksproject.tasksapp.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
