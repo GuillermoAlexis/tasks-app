@@ -24,10 +24,10 @@ public class TareaServiceImpl implements TareaService {
 		return tareaMapper.toTareaDTOList(tareas);
 	}
 
-	@Override
 	public TareaDTO createTarea(TareaDTO tareaDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		Tarea tarea = tareaMapper.tareaDTOToTarea(tareaDTO);
+		tarea = tareaRepository.save(tarea);
+		return tareaMapper.tareaToTareaDTO(tarea);
 	}
 
 	@Override
@@ -37,11 +37,9 @@ public class TareaServiceImpl implements TareaService {
 	}
 
 	@Override
-	public TareaDTO updateTarea(Long id, TareaDTO tareaDTO) {
+	public TareaDTO updateTarea(Long id, TareaDTO taskDTO) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	// Resto de los métodos del servicio
 
 }
